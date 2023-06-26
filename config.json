@@ -1,0 +1,22 @@
+[
+    {
+        "name": "LaRepubblica",
+        "logo": "./assets/La_Repubblica.svg",
+        "url": "http://data.kataweb.it/rss/news24repubblica/rss2.0.xml"
+    },
+    {
+        "name": "La Gazzetta dello Sport",
+        "logo": "./assets/La_Gazzetta_dello_Sport_logo.svg",
+        "url": "https://www.gazzetta.it/rss/home.xml"
+    },
+    {
+        "name": "ilsole24ore",
+        "logo": "./assets/Il_Sole_24_Ore.svg",
+        "url": "https://www.ilsole24ore.com/rss/italia.xml"
+    },
+    {
+        "name": "La Stampa",
+        "logo": "./assets/La_Stampa.svg",
+        "url": "http://feed.lastampa.it/Homepage.rss"
+    }
+]
