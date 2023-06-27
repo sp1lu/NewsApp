@@ -1,51 +1,40 @@
-function fetchFeed(url) {
+const newsFeed = document.querySelector('.newsfeed');
+
+const createArticleCards = function (array, index) {
+    const articleCard = document.createElement('article');
+    const articleTitle = document.createElement('h2');
+    const articleLink = document.createElement('a');
+
+    articleTitle.textContent = array[index].querySelector('title').innerHTML.replace('<![CDATA[', '').replace(']]>', '');
+    articleLink.href = array[index].querySelector('link').innerHTML;
+    articleLink.textContent = 'Read more';
+    articleLink.setAttribute('target', '_blank');
+
+    articleCard.append(articleTitle);
+    articleCard.append(articleLink);
+    newsFeed.append(articleCard);
+}
+
+function fetchSingleFeed(url) {
     fetch(url)
         .then(response => response.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
-
-
             const items = data.querySelectorAll('item');
 
             for (let i = 0; i < 6; i++) {
-                const articleCard = document.createElement('article');
-                const articleTitle = document.createElement('h2');
-                /*  const articleExcerpt = document.createElement('p'); */
-                const articleLink = document.createElement('a');
-
-                const articleSource = document.createElement('p');
-
-
-
-                articleTitle.textContent = items[i].querySelector('title').innerHTML.replace('<![CDATA[', '').replace(']]>', '');
-                /* articleExcerpt.textContent = items[i].querySelector('description').innerHTML.replace('<![CDATA[', '').replace(']]>', ''); */
-                articleLink.href = items[i].querySelector('link').innerHTML;
-                articleLink.textContent = 'Read more';
-                articleLink.setAttribute('target', '_blank');
-
-                articleSource.textContent = `source: ${items[i].querySelector('category').getAttribute('domain').replace('https://www.', '')}`;
-                articleSource.setAttribute('id', 'article-src');
-                articleCard.append(articleTitle);
-                /* articleCard.append(articleExcerpt); */
-                articleCard.append(articleLink);
-                articleCard.append(articleSource);
-
-                newsFeed.append(articleCard);
-
+                createArticleCards(items, i);
             }
         });
 }
 
-/* console.log(data); */
-const newsFeed = document.querySelector('.newsfeed');
-
-export function doThings() {
+export function fetchAllFeeds() {
 
     if (localStorage.getItem('selectedFeeds') !== null) {
         const selectedFeedsUrl = JSON.parse(localStorage.getItem('selectedFeeds'));
 
         selectedFeedsUrl.forEach(
-            url => fetchFeed(url)
+            url => fetchSingleFeed(url)
         );
     }
 }

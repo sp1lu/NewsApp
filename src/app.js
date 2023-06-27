@@ -1,6 +1,6 @@
 // Import modules
 import { generateNetworkList } from "./feedChoice.js";
-import { doThings } from "./fetchFeeds.js";
+import { fetchAllFeeds } from "./fetchFeeds.js";
 import { resetFeed } from "./resetFeed.js";
 
 // Declare DOM nodes
@@ -9,9 +9,6 @@ const dialogNetworkForm = document.querySelector('#choose-network');
 const dialogCheckboxes = document.querySelectorAll('input[type="checkbox"]');
 const dialogBtn = document.querySelector('#submitBtn');
 const resetFeedBtn = document.querySelector('#reset-feed');
-
-// Show dialog
-dialog.showModal();
 
 // Create cards
 generateNetworkList;
@@ -41,27 +38,25 @@ dialogNetworkForm.addEventListener('submit', function () {
         }
     })
 
-    console.log(selectedNetworks);
     localStorage.setItem('selectedFeeds', JSON.stringify(selectedNetworks));
 
-    doThings();
+    fetchAllFeeds();
 
 });
 
-// Local storage
+// Fetch data or no depending on localstorage content
 if (localStorage.getItem('selectedFeeds') !== null) {
 
     console.log('I know you');
 
     dialog.remove();
+    fetchAllFeeds();
 
 } else {
     console.log('First time?');
+
+    dialog.showModal();
 }
 
-// Reset feed
+// Reset feed button
 resetFeedBtn.addEventListener('click', resetFeed);
-
-// Fetch data
-/* fetchFeed(); */
-doThings();
