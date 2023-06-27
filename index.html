@@ -6,24 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsy</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
         <img src="./assets/newsy_logo.png" alt="Newsy logo">
+        <button id="reset-feed">Reset feed</button>
     </nav>
 
-    <dialog open>
-        <p>Choose your feed</p>
-        <form method="dialog" id="choose-network">
-            <div class="dialog-network-list"></div>
-            <button>Submit</button>
-        </form>
-    </dialog>
+    <main>
+        <dialog closed>
+            <h1>Choose your feed</h1>
+            <hr>
+            <form method="dialog" id="choose-network">
+                <div class="dialog-network-list"></div>
+                <button id="submitBtn">Submit</button>
+            </form>
+        </dialog>
 
+        <div class="newsfeed">
+        </div>
+    </main>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="./src/app.js"></script>
 </body>
 
 </html>

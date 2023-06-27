@@ -5,6 +5,11 @@
         "url": "http://data.kataweb.it/rss/news24repubblica/rss2.0.xml"
     },
     {
+        "name": "Il Corriere della Sera",
+        "logo": "./assets/Corriere_della_Sera.svg",
+        "url": "http://xml2.corriereobjects.it/rss/homepage.xml"
+    },
+    {
         "name": "La Gazzetta dello Sport",
         "logo": "./assets/La_Gazzetta_dello_Sport_logo.svg",
         "url": "https://www.gazzetta.it/rss/home.xml"
