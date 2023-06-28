@@ -1,5 +1,5 @@
 // Import json data
-import data from '../config.json' assert { type: 'json' };
+import data from '../../config.json' assert { type: 'json' };
 
 // Declare DOM nodes
 const dialogNetworkList = document.querySelector('.dialog-network-list');
@@ -37,14 +37,18 @@ const printNetworkCheckbox = function (networkLabel, item) {
     networkCheckbox.setAttribute('name', `singleNetwork`);
     networkCheckbox.setAttribute('value', `${item.name}`);
     networkCheckbox.setAttribute('data-url', `${item.url}`);
+    networkCheckbox.setAttribute('data-logo', `${item.logo}`);
+    networkCheckbox.setAttribute('data-website', `${item.website}`);
     networkLabel.append(networkCheckbox);
 }
 
-export const generateNetworkList = data.forEach(
-    function (item) {
-        let card = createNetworkCard();
-        let label = printNetworkLabel(card, item);
-        printNetworkLogo(label, item);
-        printNetworkCheckbox(label, item);
-    }
-)
+export const generateNetworkList = () => {
+    data.forEach(
+        function (item) {
+            let card = createNetworkCard();
+            let label = printNetworkLabel(card, item);
+            printNetworkLogo(label, item);
+            printNetworkCheckbox(label, item);
+        }
+    )
+}
