@@ -27,9 +27,13 @@ app.get('/', (req, res) => {
     res.render('pages/home', { posts });
 });
 
-app.get('/test', (req,res) => {
+app.get('/test', (req, res) => {
     res.render('pages/test');
-})
+});
+
+app.get('/boh', (req, res) => {
+    res.render('pages/boh', { stylesheet: '/boh.css' })
+});
 
 // Listening
 app.listen(3000, () => {
