@@ -1,46 +1,33 @@
 // Import modules
 import express from 'express';
 import path from 'path';
-import Parser from 'rss-parser';
 import { fileURLToPath } from 'url';
+
+import { fetchSubreddit } from './src/fetchParse.js';
 
 // Start express app
 const app = express();
-let parser = new Parser();
 
 // Adjust path as modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Set views
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-const array = ['pippo', 'topolino'];
+// Fetch data
+const posts = await fetchSubreddit();
 
 // Routing
 app.get('/', (req, res) => {
-    res.render('pages/home', { array });
+    res.render('pages/home', { posts });
 });
 
 // Listening
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
-
-// Fetch & parse subreddit
-const url = 'https://www.reddit.com/r/chickens/new/.rss';
-
-async function fetchSubreddit() {
-    let feed = await parser.parseURL(url);
-
-    /* console.log(feed.title);
-
-    feed.items.forEach(item => {
-        console.log(item.title + ':' + item.link)
-    }); */
-
-    /* console.log(feed); */
-}
-
-fetchSubreddit();
