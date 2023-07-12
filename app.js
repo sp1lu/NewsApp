@@ -1,4 +1,5 @@
 // Import modules
+import engine from 'ejs-mate';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -14,6 +15,9 @@ const __dirname = path.dirname(__filename);
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Set layouts
+app.engine('ejs', engine);
 
 // Set views
 app.set('view engine', 'ejs');
@@ -33,6 +37,10 @@ app.get('/test', (req, res) => {
 
 app.get('/boh', (req, res) => {
     res.render('pages/boh', { stylesheet: '/boh.css' })
+});
+
+app.get('/pippo', (req, res) => {
+    res.render('pages/pippo', { stylesheet: '/style.css' });
 });
 
 // Listening

@@ -10,11 +10,12 @@
 </head>
 
 <body>
+    <%- include('../partials/header') %>
     <main>
         <h1>Ciaone</h1>
     <div>
         <% for (let i = 0; i <= 5; i++) { %>
-            <%- include('../components/feed-card', { i }) %>
+            <%- include('../partials/feed-card', { i }) %>
         <% } %>
     </div>
 
