@@ -40,7 +40,7 @@ app.get('/boh', (req, res) => {
 });
 
 app.get('/pippo', (req, res) => {
-    res.render('pages/pippo', { stylesheet: '/style.css' });
+    res.render('pages/pippo', { stylesheet: '/boh.css' });
 });
 
 // Listening
