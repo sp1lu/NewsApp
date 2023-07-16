@@ -25,11 +25,10 @@ app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-// Fetch data
-const posts = await fetchSubreddit();
-
 // Routing
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    const posts = await fetchSubreddit(); // Fetch data
+
     res.render('pages/home', { posts });
 });
 
