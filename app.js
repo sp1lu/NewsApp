@@ -6,6 +6,8 @@ import { fileURLToPath } from 'url';
 
 import { fetchSubreddit } from './src/fetchParse.js';
 
+import AppError from './appError.js';
+
 // Start express app
 const app = express();
 
@@ -41,6 +43,22 @@ app.get('/boh', (req, res) => {
 
 app.get('/pippo', (req, res) => {
     res.render('pages/pippo', { stylesheet: '/boh.css' });
+});
+
+app.get('/error', (req, res) => {
+    throw new AppError('Che è \'sta cafonata?', 418);
+});
+
+/* app.use((err, req, res, next) => {
+    console.log('***********************');
+    console.log('ERROR');
+    console.log('***********************');
+    next(err);
+}); */
+
+app.use((err, req, res, next) => {
+    const { status = 500, message = 'Something went wrong!' } = err;
+    res.status(status).send(message);
 });
 
 // Listening
