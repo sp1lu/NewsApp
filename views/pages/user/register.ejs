@@ -2,13 +2,18 @@
 
 <div>
     <div>
-        <h1>Login</h1>
+        <h1>Register</h1>
     </div>
     <div>
-        <form action="/login" method="POST">
+        <form action="/register" method="POST">
             <div>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" autofocus required>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
 
             <div>
@@ -16,7 +21,7 @@
                 <input type="password" id="password" name="password" required>
             </div>
 
-            <button>Login</button>
+            <button>Register</button>
         </form>
     </div>
 </div>

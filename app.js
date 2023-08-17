@@ -26,6 +26,8 @@ app.use('/', routerHome);
 
 app.get('/login', routerUser);
 
+app.get('/register', routerUser);
+
 // Listening
 app.listen(3000, () => {
     console.log('Listening on port 3000');
