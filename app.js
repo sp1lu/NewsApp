@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 
 import { routerHome } from './routes/home.js';
+import { routerDashboard } from './routes/dashboard.js';
 import { routerUser } from './routes/user.js';
 
 // Connect Mongoose to MongoDB and handle success or errors
@@ -34,7 +35,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 // Routing
-app.use('/', routerHome);
+app.get('/', routerHome);
+
+app.get('/dashboard', routerDashboard);
 
 app.get('/login', routerUser);
 
