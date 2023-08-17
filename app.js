@@ -4,8 +4,20 @@ import ejsMate from 'ejs-mate';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import mongoose from 'mongoose';
+
 import { routerHome } from './routes/home.js';
 import { routerUser } from './routes/user.js';
+
+// Connect Mongoose to MongoDB and handle success or errors
+const dbUrl = 'mongodb://127.0.0.1:27017/newsapp';
+mongoose.connect(dbUrl);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error:'));
+db.once('open', () => {
+    console.log('Database connected');
+});
 
 // Start express app
 const app = express();
