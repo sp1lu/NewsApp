@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { routerHome } from './routes/home.js';
+import { routerUser } from './routes/user.js';
 
 // Start express app
 const app = express();
@@ -22,6 +23,8 @@ app.set('views', path.join(__dirname, '/views'));
 
 // Routing
 app.use('/', routerHome);
+
+app.get('/login', routerUser);
 
 // Listening
 app.listen(3000, () => {
