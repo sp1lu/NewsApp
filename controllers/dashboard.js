@@ -9,18 +9,21 @@ let parser = new Parser();
 export const renderDashboard = async (req, res) => {
     const pageTitle = 'Dashboard';
 
-    const channel = await Channel.findOne({name: 'Chickens'});
-
-    const url = channel.url;
-    async function fetchSubreddit() {
+    const channels = await Channel.find();
+    const posts = [];
+    for (const channel of channels) {
+        let url = channel.url;
         let feed = await parser.parseURL(url);
-
-        let post = feed.items[0];
-        return post;
+        feed.items.forEach(item => {
+            posts.push(item);
+        });
     }
 
-    let post = await fetchSubreddit();
-    console.log(post);
+    posts.sort(function(a, b) {
+        const dateA = new Date(a.isoDate);
+        const dateB = new Date(b.isoDate);
+        return dateB - dateA;
+    });
 
-    res.render('pages/dashboard', { pageTitle, post });
+    res.render('pages/dashboard', { pageTitle, posts });
 }

@@ -2,6 +2,9 @@
 <div>
     <h1>Dashboard</h1>
     <div>
-        <h5><%= post.title %></h5>
+        <% for (const post of posts) { %>
+            <h4><%= post.title %></h4>            
+            <a href="<%= post.link %>" target="_blank">Read more</a>
+        <% } %>        
     </div>
 </div>
