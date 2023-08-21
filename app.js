@@ -5,6 +5,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import mongoose from 'mongoose';
+import User from './models/user.js';
+
+import session from 'express-session';
+
+import passport from 'passport';
+import LocalStrategy from 'passport-local';
 
 import { routerHome } from './routes/home.js';
 import { routerDashboard } from './routes/dashboard.js';
@@ -34,14 +40,37 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+
+// Session
+const sessionConfig = {
+    name: 'session',
+    secret: 'notagreatsecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}
+
+app.use(session(sessionConfig));
+
+// Authentication
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // Routing
 app.get('/', routerHome);
 
+app.use('/', routerUser); // Middleware handling login and register user;
+
 app.get('/dashboard', routerDashboard);
-
-app.get('/login', routerUser);
-
-app.get('/register', routerUser);
 
 // Listening
 app.listen(3000, () => {
