@@ -4,6 +4,8 @@ import ejsMate from 'ejs-mate';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import ExpressError from './utils/ExpressError.js';
+
 import mongoose from 'mongoose';
 import User from './models/user.js';
 
@@ -71,6 +73,20 @@ app.get('/', routerHome);
 app.use('/', routerUser); // Middleware handling login and register user;
 
 app.get('/dashboard', routerDashboard);
+
+// Errors
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page not found', 404));
+});
+
+app.use((err, req, res, next) => {
+    const pageTitle = 'Error';
+    const { statusCode = 500 } = err;
+    if (!err.message) {
+        err.message = 'Something went wrong!'
+    }
+    res.status(statusCode).render('pages/errors', { pageTitle, err });
+});
 
 // Listening
 app.listen(3000, () => {

@@ -4,4 +4,4 @@ const catchAsync = func => {
     }
 }
 
-export default catchAsync
+export default catchAsync;
