@@ -18,7 +18,7 @@ router.route('/register')
 router.route('/login')
     .get(renderLogin)
     .post(
-        passport.authenticate('local', { /* failureFlash: 'Username or password are incorrect', */ failureRedirect: '/login' }),
+        passport.authenticate('local', { failureFlash: 'Password or username incorrect', failureRedirect: '/login' }),
         loginUser)
 
 router.get('/logout', logoutUser);

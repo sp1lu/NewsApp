@@ -10,6 +10,7 @@ import mongoose from 'mongoose';
 import User from './models/user.js';
 
 import session from 'express-session';
+import flash from 'connect-flash';
 
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
@@ -60,6 +61,9 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+// Flash messages
+app.use(flash());
+
 // Authentication
 app.use(passport.initialize());
 app.use(passport.session());
@@ -70,7 +74,8 @@ passport.deserializeUser(User.deserializeUser());
 // Locals middlewares
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
-
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 });
 

@@ -9,6 +9,7 @@ export const renderLogin = (req, res) => {
 
 export const loginUser = (req, res) => {
     const redirectUrl = res.locals.returnTo || '/dashboard';
+    req.flash('success', 'Welcome back!');
     res.redirect(redirectUrl);
 }
 
@@ -42,6 +43,7 @@ export const logoutUser =  async (req, res) => {
             return next(err);
         }
 
+        req.flash('success', 'Succesfully logged out')
         res.redirect('/');
     });
 }
