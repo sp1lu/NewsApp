@@ -35,3 +35,13 @@ export const registerUser = async (req, res) => {
         res.redirect('/register');
     }
 }
+
+export const logoutUser =  async (req, res) => {
+    req.logout(function (err) {
+        if (err) {
+            return next(err);
+        }
+
+        res.redirect('/');
+    });
+}

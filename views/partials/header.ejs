@@ -1,1 +1,6 @@
 <p>SONO L'HEADER</p>
+<% if (!currentUser) { %>
+    <p>You're NOT logged in</p>
+<% } else { %>
+    <p>You're logged in!</p>
+<% } %>

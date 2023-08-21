@@ -67,6 +67,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Locals middlewares
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+
+    next();
+});
+
 // Routing
 app.get('/', routerHome);
 
