@@ -19,6 +19,7 @@ import { routerHome } from './routes/home.js';
 import { routerDashboard } from './routes/dashboard.js';
 import { routerUser } from './routes/user.js';
 import { routerOnBoard } from './routes/onboard.js';
+import { routerPreferences } from './routes/preferences.js';
 
 // Connect Mongoose to MongoDB and handle success or errors
 const dbUrl = 'mongodb://127.0.0.1:27017/newsapp';
@@ -85,6 +86,7 @@ app.get('/', routerHome);
 app.use('/', routerUser); // Middleware handling login and register user;
 app.use('/dashboard', routerDashboard);
 app.use('/onboard', routerOnBoard);
+app.get('/preferences', routerPreferences);
 
 // Errors
 app.all('*', (req, res, next) => {

@@ -5,10 +5,6 @@ const router = express.Router();
 import passport from 'passport';
 
 import { renderLogin, loginUser, renderRegister, registerUser, logoutUser } from '../controllers/user.js';
-/* import { loginUser } from '../controllers/user.js';
-import { renderRegister } from '../controllers/user.js';
-import { registerUser } from '../controllers/user.js';
-import { logoutUser } from '../controllers/user.js'; */
 
 // Routing
 router.route('/register')
