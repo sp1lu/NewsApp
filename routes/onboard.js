@@ -4,7 +4,7 @@ const router = express.Router();
 import { renderOnBoard, saveInitialFeed } from '../controllers/onboard.js';
 
 // Routing
-router.route('/onboard')
+router.route('/')
     .get(renderOnBoard)
     .post(saveInitialFeed)
 

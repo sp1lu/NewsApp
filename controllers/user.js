@@ -29,7 +29,7 @@ export const registerUser = async (req, res) => {
                 return next(err);
             }
 
-            res.redirect('/dashboard');
+            res.redirect('/onboard');
         });
 
     } catch (error) {

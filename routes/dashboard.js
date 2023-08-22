@@ -5,6 +5,6 @@ const router = express.Router();
 import { renderDashboard } from "../controllers/dashboard.js";
 
 // Routing
-router.get('/dashboard', renderDashboard);
+router.get('/', renderDashboard);
 
 export { router as routerDashboard }

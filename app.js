@@ -82,12 +82,9 @@ app.use((req, res, next) => {
 
 // Routing
 app.get('/', routerHome);
-
 app.use('/', routerUser); // Middleware handling login and register user;
-
-app.get('/dashboard', routerDashboard);
-
-app.use('/', routerOnBoard);
+app.use('/dashboard', routerDashboard);
+app.use('/onboard', routerOnBoard);
 
 // Errors
 app.all('*', (req, res, next) => {
