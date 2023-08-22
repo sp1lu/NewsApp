@@ -15,9 +15,9 @@ export const renderPreferences = async (req, res) => {
     const user = await User.findOne({ username: 'spilu' });
     const userChannels = user.channels;
 
-    const isContained = (item) => {
+    const isContained = (arr, item) => {
         let isContained = false;
-        if (userChannels.includes(item)) {
+        if (arr.includes(item)) {
             isContained = true;
             return isContained;
         }
@@ -32,7 +32,9 @@ export const savePreferences = async (req, res) => {
     
     if (Array.isArray(channelsNamesRaw)) {
         channelsNamesRaw.forEach(item => {
-            channels.push(item);
+            if (!item == '') {
+                channels.push(item);   
+            }
         });
     } else {
         channels.push(channelsNamesRaw);
