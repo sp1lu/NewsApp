@@ -1,9 +1,11 @@
 // Import modules
 import express from 'express';
 const router = express.Router();
-import { renderPreferences } from '../controllers/preferences.js';
+import { renderPreferences, savePreferences } from '../controllers/preferences.js';
 
 // Routing
-router.get('/preferences', renderPreferences);
+router.route('/')
+    .get(renderPreferences)
+    .post(savePreferences)
 
 export { router as routerPreferences }

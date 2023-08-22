@@ -86,7 +86,7 @@ app.get('/', routerHome);
 app.use('/', routerUser); // Middleware handling login and register user;
 app.use('/dashboard', routerDashboard);
 app.use('/onboard', routerOnBoard);
-app.get('/preferences', routerPreferences);
+app.use('/preferences', routerPreferences);
 
 // Errors
 app.all('*', (req, res, next) => {
