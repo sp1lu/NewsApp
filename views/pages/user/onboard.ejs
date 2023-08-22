@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') %>
+
+<div>
+    <h1>On Board</h1>
+    <p>Select at leat one of the following source to start filling your custom feed</p>
+</div>
+<div>
+    <form action="/onboard" method="POST" novalidate>
+        <% for (const channel of channels) { %>
+            <div>
+                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>">
+                <label for="<%= channel.name %>"><%= channel.name %></label>
+            </div>
+        <% } %>
+        <button>Submit</button>
+    </form>
+</div>

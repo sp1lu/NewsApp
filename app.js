@@ -18,6 +18,7 @@ import LocalStrategy from 'passport-local';
 import { routerHome } from './routes/home.js';
 import { routerDashboard } from './routes/dashboard.js';
 import { routerUser } from './routes/user.js';
+import { routerOnBoard } from './routes/onboard.js';
 
 // Connect Mongoose to MongoDB and handle success or errors
 const dbUrl = 'mongodb://127.0.0.1:27017/newsapp';
@@ -85,6 +86,8 @@ app.get('/', routerHome);
 app.use('/', routerUser); // Middleware handling login and register user;
 
 app.get('/dashboard', routerDashboard);
+
+app.use('/', routerOnBoard);
 
 // Errors
 app.all('*', (req, res, next) => {

@@ -33,6 +33,7 @@ export const registerUser = async (req, res) => {
         });
 
     } catch (error) {
+        req.flash('error', 'Fields invalid or empty')
         res.redirect('/register');
     }
 }
