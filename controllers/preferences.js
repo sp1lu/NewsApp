@@ -27,28 +27,34 @@ export const renderPreferences = async (req, res) => {
 }
 
 export const savePreferences = async (req, res) => {
-    const channelsNamesRaw = req.body.channels.name;
-    const channels = [];
-    
-    if (Array.isArray(channelsNamesRaw)) {
-        channelsNamesRaw.forEach(item => {
-            if (!item == '') {
-                channels.push(item);   
-            }
-        });
+
+    if (req.body.channels != undefined) {
+        const channelsNamesRaw = req.body.channels.name;
+        const channels = [];
+
+        if (Array.isArray(channelsNamesRaw)) {
+            channelsNamesRaw.forEach(item => {
+                if (!item == '') {
+                    channels.push(item);
+                }
+            });
+        } else {
+            channels.push(channelsNamesRaw);
+        }
+
+        // const user = await User.findById(req.user._id);
+        const user = await User.findOne({ username: 'spilu' });
+
+        user.channels = [];
+        for (const channel of channels) {
+            user.channels.push(channel);
+        }
+
+        await user.save();
+        res.redirect('/dashboard');
+
     } else {
-        channels.push(channelsNamesRaw);
+        req.flash('error', 'Select at least one rss source')
+        res.redirect('/preferences');
     }
-
-    // const user = await User.findById(req.user._id);
-    const user = await User.findOne({ username: 'spilu' });
-
-    user.channels = [];
-    for (const channel of channels) {
-        user.channels.push(channel);
-    }
-
-    await user.save();
-
-    res.redirect('/dashboard');
 }
