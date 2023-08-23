@@ -46,8 +46,15 @@ export const savePreferences = async (req, res) => {
         const user = await User.findOne({ username: 'spilu' });
 
         user.channels = [];
-        for (const channel of channels) {
-            user.channels.push(channel);
+        for (let channel of channels) {
+
+            try {
+                await fetch(channel);
+                user.channels.push(channel);
+
+            } catch (error) {
+                req.flash('error', `Custom url ${channel} is not a valid rss source`);
+            }            
         }
 
         await user.save();
