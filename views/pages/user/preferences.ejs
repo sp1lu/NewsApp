@@ -12,16 +12,14 @@
             </div>
         <% } %>
 
-        <% for (const channel of userChannelsUrl) {
-            if (!isContained(dbChannelsUrl, channel)) { %>
+        <% for (const channel of userCustomChannels) { %>
                 <div>
-                    <input type="checkbox" id="<%= channel %>" name="channels[name]" value="<%= channel %>" checked>
-                    <label for="<%= channel %>"><%= channel %></label>
+                    <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" checked>
+                    <label for="<%= channel %>"><%= channel.name %></label>
                 </div>
-            <% }
-        } %>
+        <% } %>
         <div id="custom-inputs"></div>
-        <button type="button" id="add-input">Add custom feed</button>
+        <a href="/preferences/add">Add custom feed</a>
         <button type="submit">Submit</button>
     </form>
 </div>

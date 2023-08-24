@@ -49,7 +49,16 @@ const seedDb = async () => {
                 url: 'https://www.dunkest.com/it/rss/notizie/nba/ultime'
             }
         ],
-        customChannels: []
+        customChannels: [
+            {
+                name: 'Reddit - Football Manager',
+                url: 'https://www.reddit.com/r/footballmanagergames/new/.rss'
+            },
+            {
+                name: 'Reddit - Baseball',
+                url: 'https://www.reddit.com/r/baseball/new/.rss'
+            }
+        ]
     });
 
     await user.save();
