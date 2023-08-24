@@ -11,7 +11,16 @@ export const renderDashboard = async (req, res) => {
     const pageTitle = 'Dashboard';
 
     const user = await User.findOne({ username: 'spilu' });
-    const channels = user.channels;
+
+    const channels = [];
+    user.channels.forEach(element => {
+        channels.push(element);
+    });
+
+    user.customChannels.forEach(element => {
+        channels.push(element);
+    });
+
     const posts = [];
     for (const channel of channels) {
         let feed = await parser.parseURL(channel.url);
