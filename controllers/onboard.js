@@ -36,12 +36,14 @@ export const saveInitialFeed = async (req, res, next) => {
         const user = await User.findOne({ username: 'spilu' });
 
         user.channels = [];
+        user.customChannels = [];
+
         for (const channel of channels) {
             user.channels.push(channel);
         }
 
         await user.save();
-        res.redirect('/onboard');
+        res.redirect('/dashboard');
 
     } else {
         req.flash('error', 'Select at least one rss source')

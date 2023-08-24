@@ -74,7 +74,7 @@ export const savePreferences = async (req, res) => {
 
         await user.save();
 
-        res.redirect('/preferences');
+        res.redirect('/dashboard');
 
     } else {
         req.flash('error', 'Select at least one rss source');
