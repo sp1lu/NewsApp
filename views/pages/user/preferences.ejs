@@ -7,12 +7,13 @@
     <form action="/preferences" method="POST" novalidate>
         <% for (const channel of channels) { %>
             <div>
-                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannels, channel.url) ? 'checked' : '' %>>
+                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannelsUrl, channel.url) ? 'checked' : '' %>>
                 <label for="<%= channel.name %>"><%= channel.name %></label>
             </div>
         <% } %>
-        <% for (const channel of userChannels) {
-            if (!isContained(dbChannels, channel)) { %>
+
+        <% for (const channel of userChannelsUrl) {
+            if (!isContained(dbChannelsUrl, channel)) { %>
                 <div>
                     <input type="checkbox" id="<%= channel %>" name="channels[name]" value="<%= channel %>" checked>
                     <label for="<%= channel %>"><%= channel %></label>

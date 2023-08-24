@@ -14,21 +14,11 @@ export const renderDashboard = async (req, res) => {
     const channels = user.channels;
     const posts = [];
     for (const channel of channels) {
-        let feed = await parser.parseURL(channel);
+        let feed = await parser.parseURL(channel.url);
         feed.items.forEach(item => {
             posts.push(item);
         })
     }
-
-    /* const channels = await Channel.find();
-    const posts = [];
-    for (const channel of channels) {
-        let url = channel.url;
-        let feed = await parser.parseURL(url);
-        feed.items.forEach(item => {
-            posts.push(item);
-        });
-    } */
 
     posts.sort(function (a, b) {
         const dateA = new Date(a.isoDate);

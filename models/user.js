@@ -9,7 +9,19 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-    channels: [ String ]
+    /* channels: [ String ] */
+    channels: [
+        {
+            name: String,
+            url: String
+        }
+    ],
+    customChannels: [
+        {
+            name: String,
+            url: String
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose);

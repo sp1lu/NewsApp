@@ -12,16 +12,24 @@ export const renderOnBoard = async (req, res) => {
 export const saveInitialFeed = async (req, res, next) => {
     if (req.body.channels != undefined) {
         const channelsNamesRaw = req.body.channels.name;
-        const channels = [];
+        const userPreferences = [];
 
         if (Array.isArray(channelsNamesRaw)) {
             channelsNamesRaw.forEach(item => {
                 if (!item == '') {
-                    channels.push(item);
+                    userPreferences.push(item);
                 }
             });
+            
         } else {
-            channels.push(channelsNamesRaw);
+            userPreferences.push(channelsNamesRaw);
+        }
+
+        const channels = [];
+
+        for (const userPreference of userPreferences) {
+            const channelObj = await Channel.findOne({ url: userPreference });
+            channels.push(channelObj);
         }
 
         // const user = await User.findById(req.user._id);
@@ -33,7 +41,7 @@ export const saveInitialFeed = async (req, res, next) => {
         }
 
         await user.save();
-        res.redirect('/dashboard');
+        res.redirect('/onboard');
 
     } else {
         req.flash('error', 'Select at least one rss source')
