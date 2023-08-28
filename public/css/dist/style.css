@@ -74,9 +74,19 @@ h6 {
 /* Header */
 header {
   width: 30%;
-  padding: 0 120px 0 0; }
+  padding: 0 120px 0 0;
+  height: fit-content;
+  position: sticky;
+  top: 0; }
   header #logo {
     width: 88px; }
+  header nav ul {
+    padding: 0;
+    list-style: none; }
+    header nav ul li a {
+      text-decoration: none; }
+      header nav ul li a i {
+        margin: 0 8px 0 0; }
 
 main {
   width: 70%; }
