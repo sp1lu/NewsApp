@@ -134,12 +134,6 @@ nav {
 /*
 * Main
 */
-main {
-  width: 80%;
-  padding: 32px 0 0 120px;
-  border-left: 1px solid #e5e5e5;
-  min-height: 100vh; }
-
 /*
 * Footer
 */
@@ -149,21 +143,26 @@ footer {
 /*
 * Dashboard
 */
-main .post {
-  padding: 40px 0;
-  border-bottom: 1px solid #e5e5e5; }
-  main .post .post-data {
-    font-size: .75rem;
-    font-weight: 500;
-    color: #c8c8d0; }
-  main .post .post-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 8px 0; }
-  main .post .post-read-more {
-    font-size: .8rem; }
-    main .post .post-read-more:hover {
-      color: #5c167f; }
+.main-dashboard {
+  width: 80%;
+  padding: 32px 0 0 120px;
+  border-left: 1px solid #e5e5e5;
+  min-height: 100vh; }
+  .main-dashboard .post {
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e5e5; }
+    .main-dashboard .post .post-data {
+      font-size: .75rem;
+      font-weight: 500;
+      color: #c8c8d0; }
+    .main-dashboard .post .post-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 8px 0; }
+    .main-dashboard .post .post-read-more {
+      font-size: .8rem; }
+      .main-dashboard .post .post-read-more:hover {
+        color: #5c167f; }
 
 /*
 * Preferences
@@ -181,7 +180,7 @@ main .post {
   justify-content: space-between;
   padding: 0px;
   border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border-radius: 4px;
   margin: 0 0 8px 0;
   font-size: .9rem; }
   .preferences-section .preferences-input label {
@@ -248,15 +247,16 @@ main .post {
 /*
 * Login
 */
-.primary {
+.main-empty {
   max-width: 600px;
-  margin: 24px auto; }
+  margin: 80px auto; }
 
 .login-section {
   max-width: 400px;
-  margin: 80px auto; }
+  margin: auto; }
   .login-section .login-title {
-    text-align: center; }
+    text-align: center;
+    margin: 0 0 24px 0; }
     .login-section .login-title p {
       font-size: .75rem; }
   .login-section label {
@@ -281,6 +281,45 @@ main .post {
     transition: .1s ease-in-out; }
     .login-section button:hover {
       background-color: #5c167f; }
+
+/*
+* Onboard
+*/
+.onboard-title {
+  text-align: center;
+  margin: 0 0 24px 0; }
+  .onboard-title p {
+    font-size: .9rem; }
+
+.onboard-form .preferences-input {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  margin: 0 0 8px 0;
+  font-size: .9rem; }
+  .onboard-form .preferences-input label {
+    cursor: pointer;
+    width: 100%;
+    padding: 8px 0 8px 8px; }
+  .onboard-form .preferences-input input {
+    cursor: pointer;
+    margin: 0 8px 0 0; }
+
+.onboard-form button {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #9147ff;
+  border: none;
+  border-radius: 4px;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: .1s ease-in-out; }
+  .onboard-form button:hover {
+    background-color: #5c167f; }
 
 /*
 * Flash messages

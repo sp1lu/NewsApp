@@ -1,15 +1,15 @@
 <% layout('layouts/empty') %>
 
-<div>
+<div class="onboard-title">
     <h1>On Board</h1>
     <p>Select at leat one of the following source to start filling your custom feed</p>
 </div>
-<div>
+<div class="onboard-form">
     <form action="/onboard" method="POST" novalidate>
         <% for (const channel of channels) { %>
-            <div>
-                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>">
+            <div class="preferences-input">
                 <label for="<%= channel.name %>"><%= channel.name %></label>
+                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>">                
             </div>
         <% } %>
         <button>Submit</button>
