@@ -1,10 +1,12 @@
 <% layout('layouts/boilerplate') %>
 <div>
     <h1>Dashboard</h1>
-    <div>
+    <div class="feed">
         <% for (const post of posts) { %>
-            <h4><%= post.title %></h4>
-            <a href="<%= post.link %>" target="_blank">Read more</a>
+            <div class="post">
+                <h4 class="post-title"><%= post.title %></h4>
+                <a href="<%= post.link %>" target="_blank" class="post-read-more">Read full post</a>
+            </div>
         <% } %>        
     </div>
 </div>

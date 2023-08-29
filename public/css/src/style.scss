@@ -73,7 +73,42 @@ h6 {
     isolation: isolate;
 }
 
-/* Structure */
+/* 
+* Variables
+*/
+$purple: #9147ff;
+$dark-purple: #5c167f;
+$light-purple: #efe4ff;
+
+$black: #0e0e10;
+$white: #ffffff;
+
+$grey: #e5e5e5;
+$dark-grey: #c8c8d0;
+$light-grey: #f9f9f9;
+
+/*
+* Font
+*/
+body {
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    transition: .1s ease-in-out;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+a {
+    color: $purple;
+    text-decoration: none;
+}
+
+/*
+* Structure
+*/
 .container {
     display: flex;
     max-width: 1240px;
@@ -82,36 +117,104 @@ h6 {
 
 /* Header */
 header {
-    width: 30%;
-    padding: 0 120px 0 0;
+    width: 20%;
+    padding: 0 32px 0 0;
     height: fit-content;
     position: sticky;
     top: 0;
 
-    #logo {
-        width: 88px;
+    #logo-section {
+        padding: 32px 0;
+        border-bottom: 1px solid $grey;
+
+        #logo {
+            width: 120px;
+        }
     }
 
-    nav {
+    #copyright-section {
+        font-size: .75rem;
+        color: $dark-grey;
+        border-top: 1px solid $grey;
+        padding: 32px 0;
+    }
 
-        ul {
-            padding: 0;
-            list-style: none;
+}
 
-            li {
+nav {
+    padding: 32px 0;
 
-                a {
-                    text-decoration: none;
+    ul {
+        padding: 0;
+        list-style-type: none;
 
-                    i {
-                        margin: 0 8px 0 0;
-                    }
+        li {
+            a {
+                color: $black;
+                text-decoration: none;
+                display: block;
+                padding: 8px;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: $light-grey;
+                }
+
+                i {
+                    margin: 0 8px 0 0;
+                }
+            }
+
+            .active {
+                color: $purple;
+                background-color: $light-purple;
+
+                &:hover {
+                    background-color: $light-purple;
                 }
             }
         }
     }
 }
 
+/*
+* Main
+*/
 main {
-    width: 70%;
+    width: 80%;
+    padding: 32px 0 0 120px;
+    border-left: 1px solid $grey;
+    min-height: 100vh;
+}
+
+/*
+* Footer
+*/
+footer {
+    display: none;
+    
+}
+
+/*
+* Dashboard
+*/
+main {
+    .post {
+        padding: 40px 0;
+        border-bottom: 1px solid $grey;
+
+        .post-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .post-read-more {
+            font-size: .8rem;
+
+            &:hover {
+                color: $dark-purple;
+            }
+        }
+    }
 }

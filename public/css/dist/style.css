@@ -65,7 +65,28 @@ h6 {
 #__next {
   isolation: isolate; }
 
-/* Structure */
+/* 
+* Variables
+*/
+/*
+* Font
+*/
+body {
+  font-size: 1em;
+  font-family: 'Inter', sans-serif;
+  transition: .1s ease-in-out; }
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600; }
+
+a {
+  color: #9147ff;
+  text-decoration: none; }
+
+/*
+* Structure
+*/
 .container {
   display: flex;
   max-width: 1240px;
@@ -73,20 +94,69 @@ h6 {
 
 /* Header */
 header {
-  width: 30%;
-  padding: 0 120px 0 0;
+  width: 20%;
+  padding: 0 32px 0 0;
   height: fit-content;
   position: sticky;
   top: 0; }
-  header #logo {
-    width: 88px; }
-  header nav ul {
-    padding: 0;
-    list-style: none; }
-    header nav ul li a {
-      text-decoration: none; }
-      header nav ul li a i {
-        margin: 0 8px 0 0; }
+  header #logo-section {
+    padding: 32px 0;
+    border-bottom: 1px solid #e5e5e5; }
+    header #logo-section #logo {
+      width: 120px; }
+  header #copyright-section {
+    font-size: .75rem;
+    color: #c8c8d0;
+    border-top: 1px solid #e5e5e5;
+    padding: 32px 0; }
 
+nav {
+  padding: 32px 0; }
+  nav ul {
+    padding: 0;
+    list-style-type: none; }
+    nav ul li a {
+      color: #0e0e10;
+      text-decoration: none;
+      display: block;
+      padding: 8px;
+      border-radius: 4px; }
+      nav ul li a:hover {
+        background-color: #f9f9f9; }
+      nav ul li a i {
+        margin: 0 8px 0 0; }
+    nav ul li .active {
+      color: #9147ff;
+      background-color: #efe4ff; }
+      nav ul li .active:hover {
+        background-color: #efe4ff; }
+
+/*
+* Main
+*/
 main {
-  width: 70%; }
+  width: 80%;
+  padding: 32px 0 0 120px;
+  border-left: 1px solid #e5e5e5;
+  min-height: 100vh; }
+
+/*
+* Footer
+*/
+footer {
+  display: none; }
+
+/*
+* Dashboard
+*/
+main .post {
+  padding: 40px 0;
+  border-bottom: 1px solid #e5e5e5; }
+  main .post .post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0; }
+  main .post .post-read-more {
+    font-size: .8rem; }
+    main .post .post-read-more:hover {
+      color: #5c167f; }
