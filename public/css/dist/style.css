@@ -2,7 +2,9 @@
 * Import modules
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-/* Css Reset */
+/*
+* Css Reset
+*/
 /*
 * 1. Use a more-intuitive box-sizing model
 */
@@ -69,13 +71,19 @@ h6 {
 * Variables
 */
 /*
-* Font
+* General
+*/
+/*
+* Structure
 */
 body {
   font-size: 1em;
   font-family: 'Inter', sans-serif;
   transition: .1s ease-in-out; }
 
+/*
+* Font
+*/
 h1 {
   font-size: 1.25rem;
   font-weight: 600; }
@@ -85,6 +93,63 @@ a {
   text-decoration: none; }
 
 /*
+* Input
+*/
+input {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 0 0 8px 0;
+  font-size: 1rem; }
+
+.preferences-input {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: 0 0 16px 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px; }
+
+.checkbox {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: 0 0 16px 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px; }
+  .checkbox label {
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    padding: 8px 0 8px 8px; }
+  .checkbox input {
+    cursor: pointer;
+    margin: 0 8px 0 0; }
+
+label {
+  font-size: .75rem; }
+
+/*
+* Buttons
+*/
+button {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #9147ff;
+  border: none;
+  border-radius: 4px;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: .1s ease-in-out; }
+  button:hover {
+    background-color: #5c167f; }
+
+/*
 * Structure
 */
 .container {
@@ -92,7 +157,19 @@ a {
   max-width: 1240px;
   margin: auto; }
 
-/* Header */
+.main-dashboard {
+  width: 80%;
+  padding: 32px 0 0 120px;
+  border-left: 1px solid #e5e5e5;
+  min-height: 100vh; }
+
+.main-empty {
+  max-width: 600px;
+  margin: 80px auto; }
+
+/*
+* Sidebar
+*/
 header {
   width: 20%;
   padding: 0 32px 0 0;
@@ -110,6 +187,9 @@ header {
     border-top: 1px solid #e5e5e5;
     padding: 32px 0; }
 
+/*
+* Navigation
+*/
 nav {
   padding: 32px 0; }
   nav ul {
@@ -132,174 +212,85 @@ nav {
         background-color: #efe4ff; }
 
 /*
-* Main
-*/
-/*
 * Footer
 */
 footer {
   display: none; }
 
 /*
+* Title section
+*/
+.title-section {
+  text-align: center;
+  margin: 0 0 32px 0; }
+  .title-section h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 8px 0; }
+  .title-section p {
+    font-size: .9rem; }
+
+/*
 * Dashboard
 */
-.main-dashboard {
-  width: 80%;
-  padding: 32px 0 0 120px;
-  border-left: 1px solid #e5e5e5;
-  min-height: 100vh; }
-  .main-dashboard .post {
-    padding: 40px 0;
-    border-bottom: 1px solid #e5e5e5; }
-    .main-dashboard .post .post-data {
-      font-size: .75rem;
-      font-weight: 500;
-      color: #c8c8d0; }
-    .main-dashboard .post .post-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 8px 0; }
-    .main-dashboard .post .post-read-more {
-      font-size: .8rem; }
-      .main-dashboard .post .post-read-more:hover {
-        color: #5c167f; }
+.post {
+  padding: 40px 0;
+  border-bottom: 1px solid #e5e5e5; }
+  .post .post-data {
+    font-size: .75rem;
+    font-weight: 500;
+    color: #c8c8d0; }
+  .post .post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 8px 0; }
+  .post .post-read-more {
+    font-size: .8rem; }
+    .post .post-read-more:hover {
+      color: #5c167f; }
 
 /*
 * Preferences
 */
-.preferences-title {
-  margin: 0 0 32px 0; }
-
 .preferences-section .col {
   width: 50%;
   float: left; }
 
-.preferences-section .preferences-input {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  margin: 0 0 8px 0;
-  font-size: .9rem; }
-  .preferences-section .preferences-input label {
-    cursor: pointer;
-    width: 100%;
-    padding: 8px 0 8px 8px; }
-  .preferences-section .preferences-input input {
-    cursor: pointer;
-    margin: 0 8px 0 0; }
-
 .preferences-section .preferences-controls {
   display: flex;
   width: 100%; }
-  .preferences-section .preferences-controls button {
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #9147ff;
-    border: none;
-    border-radius: 4px;
-    font-size: .9rem;
-    font-weight: 500;
-    padding: 6px 16px;
-    transition: .1s ease-in-out; }
-    .preferences-section .preferences-controls button:hover {
-      background-color: #5c167f; }
 
 /*
 * Add custom feed
 */
-.add-custom-title {
-  margin: 0 0 32px 0; }
-
 .add-custom-section label,
 .add-custom-section input {
   display: block;
   width: 100%; }
 
-.add-custom-section label {
-  font-size: .75rem;
-  margin: 0 0 6px 0; }
-
-.add-custom-section input {
-  font-size: .9rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  padding: 8px 8px; }
-
 .add-custom-section .add-custom-input {
   margin: 0 0 16px 0; }
-
-.add-custom-section button {
-  cursor: pointer;
-  color: #ffffff;
-  background-color: #9147ff;
-  border: none;
-  border-radius: 4px;
-  font-size: .9rem;
-  font-weight: 500;
-  padding: 6px 16px;
-  transition: .1s ease-in-out; }
-  .add-custom-section button:hover {
-    background-color: #5c167f; }
 
 /*
 * Login
 */
-.main-empty {
-  max-width: 600px;
-  margin: 80px auto; }
-
 .login-section {
   max-width: 400px;
   margin: auto; }
-  .login-section .login-title {
-    text-align: center;
-    margin: 0 0 24px 0; }
-    .login-section .login-title p {
-      font-size: .75rem; }
   .login-section label {
     font-size: .75rem;
     margin: 0 0 6px 0; }
   .login-section input {
-    width: 100%;
-    font-size: .9rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    padding: 8px 8px;
-    margin: 0 0 8px 0; }
-  .login-section button {
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #9147ff;
-    border: none;
-    border-radius: 4px;
-    font-size: .9rem;
-    font-weight: 500;
-    padding: 6px 16px;
-    transition: .1s ease-in-out; }
-    .login-section button:hover {
-      background-color: #5c167f; }
+    width: 100%; }
 
 /*
 * Onboard
 */
-.onboard-title {
-  text-align: center;
-  margin: 0 0 24px 0; }
-  .onboard-title p {
-    font-size: .9rem; }
-
 .onboard-form .preferences-input {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0px;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  margin: 0 0 8px 0;
-  font-size: .9rem; }
+  padding: 0px; }
   .onboard-form .preferences-input label {
     cursor: pointer;
     width: 100%;
@@ -307,19 +298,6 @@ footer {
   .onboard-form .preferences-input input {
     cursor: pointer;
     margin: 0 8px 0 0; }
-
-.onboard-form button {
-  cursor: pointer;
-  color: #ffffff;
-  background-color: #9147ff;
-  border: none;
-  border-radius: 4px;
-  font-size: .9rem;
-  font-weight: 500;
-  padding: 6px 16px;
-  transition: .1s ease-in-out; }
-  .onboard-form button:hover {
-    background-color: #5c167f; }
 
 /*
 * Flash messages
