@@ -1,26 +1,33 @@
 <% layout('layouts/boilerplate') %>
 
-<div>
+<div class="preferences-title">
     <h1>Preferences</h1>
 </div>
-<div>
+<div class="preferences-section">
     <form action="/preferences" method="POST" novalidate>
+        <div class="col">
         <% for (const channel of channels) { %>
-            <div>
-                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannelsUrl, channel.url) ? 'checked' : '' %>>
+            <div class="preferences-input">
                 <label for="<%= channel.name %>"><%= channel.name %></label>
+                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannelsUrl, channel.url) ? 'checked' : '' %>>
             </div>
         <% } %>
+        </div>
 
+        <div class="col">
         <% for (const channel of userCustomChannels) { %>
-                <div>
+                <div class="preferences-input">
+                    <label for="<%= channel.name %>"><%= channel.name %></label>
                     <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" checked>
-                    <label for="<%= channel %>"><%= channel.name %></label>
                 </div>
         <% } %>
+        </div>
+        <div class="preferences-controls">
         <div id="custom-inputs"></div>
-        <a href="/preferences/add">Add custom feed</a>
+        <!-- <a href="/preferences/add">Add custom feed</a> -->
+        
         <button type="submit">Submit</button>
+        </div>
     </form>
 </div>
 

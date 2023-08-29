@@ -99,6 +99,7 @@ export const saveCustomFeed = async (req, res) => {
         user.customChannels.push(customChannel);
         await user.save();
 
+        req.flash('success', `${customChannel.name} added to custom sources`)
         res.redirect('/preferences');
 
     } catch (error) {

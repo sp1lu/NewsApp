@@ -205,8 +205,8 @@ main {
 
         .post-data {
             font-size: .75rem;
+            font-weight: 500;
             color: $dark-grey;
-
         }
 
         .post-title {
@@ -223,4 +223,137 @@ main {
             }
         }
     }
+}
+
+/*
+* Preferences
+*/
+.preferences-title {
+    margin: 0 0 32px 0;
+}
+
+.preferences-section {
+    .col {
+        width: 50%;
+        float: left;
+    }
+}
+
+.preferences-section {
+    .preferences-input {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px;
+        border: 1px solid $grey;
+        border-radius: 8px;
+        margin: 0 0 8px 0;
+        font-size: .9rem;
+
+        label {
+            cursor: pointer;
+            width: 100%;
+            padding: 8px 0 8px 8px;
+        }
+
+        input {
+            cursor: pointer;
+            margin: 0 8px 0 0;
+        }
+
+    }
+}
+
+.preferences-section {
+    .preferences-controls {
+        display: flex;
+        width: 100%;
+
+        button {
+            cursor: pointer;
+            color: $white;
+            background-color: $purple;
+            border: none;
+            border-radius: 4px;
+            font-size: .9rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                background-color: $dark-purple;
+            }
+        }
+    }
+}
+
+/*
+* Add custom feed
+*/
+.add-custom-title {
+    margin: 0 0 32px 0;
+}
+
+.add-custom-section {
+    label,
+    input {
+        display: block;
+        width: 100%;
+    }
+
+    label {
+        font-size: .75rem;
+        margin: 0 0 6px 0;
+    }
+
+    input {
+        font-size: .9rem;
+        border: 1px solid $grey;
+        border-radius: 4px;
+        padding: 8px 8px;        
+    }
+
+    .add-custom-input {
+        margin: 0 0 16px 0;
+    }
+
+    button {
+            cursor: pointer;
+            color: $white;
+            background-color: $purple;
+            border: none;
+            border-radius: 4px;
+            font-size: .9rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                background-color: $dark-purple;
+            }
+        }
+}
+
+/*
+* Flash messages
+*/
+.flash {
+    padding: 16px;
+    margin: 0 0 24px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .8rem;
+}
+
+.success {
+    color: #0073ff;
+    background-color: #c2edff;
+    border: 1px solid #0073ff;
+}
+
+
+.error {
+    color: #ff3e2c;
+    background-color: #fff1f0;
+    border: 1px solid #ff3e2c;
 }

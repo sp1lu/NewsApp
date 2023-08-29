@@ -154,6 +154,7 @@ main .post {
   border-bottom: 1px solid #e5e5e5; }
   main .post .post-data {
     font-size: .75rem;
+    font-weight: 500;
     color: #c8c8d0; }
   main .post .post-title {
     font-size: 1rem;
@@ -163,3 +164,103 @@ main .post {
     font-size: .8rem; }
     main .post .post-read-more:hover {
       color: #5c167f; }
+
+/*
+* Preferences
+*/
+.preferences-title {
+  margin: 0 0 32px 0; }
+
+.preferences-section .col {
+  width: 50%;
+  float: left; }
+
+.preferences-section .preferences-input {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+  font-size: .9rem; }
+  .preferences-section .preferences-input label {
+    cursor: pointer;
+    width: 100%;
+    padding: 8px 0 8px 8px; }
+  .preferences-section .preferences-input input {
+    cursor: pointer;
+    margin: 0 8px 0 0; }
+
+.preferences-section .preferences-controls {
+  display: flex;
+  width: 100%; }
+  .preferences-section .preferences-controls button {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #9147ff;
+    border: none;
+    border-radius: 4px;
+    font-size: .9rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    transition: .1s ease-in-out; }
+    .preferences-section .preferences-controls button:hover {
+      background-color: #5c167f; }
+
+/*
+* Add custom feed
+*/
+.add-custom-title {
+  margin: 0 0 32px 0; }
+
+.add-custom-section label,
+.add-custom-section input {
+  display: block;
+  width: 100%; }
+
+.add-custom-section label {
+  font-size: .75rem;
+  margin: 0 0 6px 0; }
+
+.add-custom-section input {
+  font-size: .9rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 8px 8px; }
+
+.add-custom-section .add-custom-input {
+  margin: 0 0 16px 0; }
+
+.add-custom-section button {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #9147ff;
+  border: none;
+  border-radius: 4px;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: .1s ease-in-out; }
+  .add-custom-section button:hover {
+    background-color: #5c167f; }
+
+/*
+* Flash messages
+*/
+.flash {
+  padding: 16px;
+  margin: 0 0 24px 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .8rem; }
+
+.success {
+  color: #0073ff;
+  background-color: #c2edff;
+  border: 1px solid #0073ff; }
+
+.error {
+  color: #ff3e2c;
+  background-color: #fff1f0;
+  border: 1px solid #ff3e2c; }
