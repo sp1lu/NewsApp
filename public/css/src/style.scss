@@ -295,6 +295,7 @@ main {
 }
 
 .add-custom-section {
+
     label,
     input {
         display: block;
@@ -310,7 +311,7 @@ main {
         font-size: .9rem;
         border: 1px solid $grey;
         border-radius: 4px;
-        padding: 8px 8px;        
+        padding: 8px 8px;
     }
 
     .add-custom-input {
@@ -318,28 +319,82 @@ main {
     }
 
     button {
-            cursor: pointer;
-            color: $white;
-            background-color: $purple;
-            border: none;
-            border-radius: 4px;
-            font-size: .9rem;
-            font-weight: 500;
-            padding: 6px 16px;
-            transition: .1s ease-in-out;
+        cursor: pointer;
+        color: $white;
+        background-color: $purple;
+        border: none;
+        border-radius: 4px;
+        font-size: .9rem;
+        font-weight: 500;
+        padding: 6px 16px;
+        transition: .1s ease-in-out;
 
-            &:hover {
-                background-color: $dark-purple;
-            }
+        &:hover {
+            background-color: $dark-purple;
         }
+    }
 }
+
+/*
+* Login
+*/
+.primary {
+    max-width: 600px;
+    margin: 24px auto;
+}
+
+.login-section {
+    max-width: 400px;
+    margin: 80px auto;
+
+    .login-title {
+        text-align: center;
+
+        p {
+            font-size: .75rem;
+        }
+    }
+
+    label {
+        font-size: .75rem;
+        margin: 0 0 6px 0;
+    }
+
+    input {
+        width: 100%;
+        font-size: .9rem;
+        border: 1px solid $grey;
+        border-radius: 4px;
+        padding: 8px 8px;
+        margin: 0 0 8px 0;
+    }
+
+    button {
+        cursor: pointer;
+        color: $white;
+        background-color: $purple;
+        border: none;
+        border-radius: 4px;
+        font-size: .9rem;
+        font-weight: 500;
+        padding: 6px 16px;
+        transition: .1s ease-in-out;
+
+        &:hover {
+            background-color: $dark-purple;
+        }
+    }
+}
+
+
 
 /*
 * Flash messages
 */
 .flash {
+    max-width: 1240px;
     padding: 16px;
-    margin: 0 0 24px 0;
+    margin: 0 auto 24px auto;
     border-radius: 4px;
     font-weight: 600;
     font-size: .8rem;
