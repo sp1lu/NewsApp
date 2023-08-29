@@ -50,5 +50,11 @@ export const renderDashboard = async (req, res) => {
         }
     }
 
-    res.render('pages/dashboard', { pageTitle, posts, compareDate });
+    const getShortUrl = (post) => {
+        let cutLeft = post.link.substring(post.link.indexOf(".") + 1);
+        let shortUrl = cutLeft.substring(0, cutLeft.indexOf("/"));
+        return shortUrl;
+    }
+
+    res.render('pages/dashboard', { pageTitle, posts, compareDate, getShortUrl });
 }

@@ -4,7 +4,7 @@
     <div class="feed">
         <% for (const post of posts) { %>
             <div class="post">
-                <p class="post-time"><%= compareDate(post) %></p>
+                <p class="post-data"><%= getShortUrl(post)  %> &#x2022; <%= compareDate(post) %></p>
                 <h4 class="post-title"><%= post.title %></h4>
                 <a href="<%= post.link %>" target="_blank" class="post-read-more">Read full post</a>
             </div>
