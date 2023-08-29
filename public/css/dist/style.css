@@ -152,10 +152,13 @@ footer {
 main .post {
   padding: 40px 0;
   border-bottom: 1px solid #e5e5e5; }
+  main .post .post-time {
+    font-size: .75rem;
+    color: #c8c8d0; }
   main .post .post-title {
     font-size: 1rem;
     font-weight: 600;
-    margin: 0 0 8px 0; }
+    margin: 8px 0; }
   main .post .post-read-more {
     font-size: .8rem; }
     main .post .post-read-more:hover {

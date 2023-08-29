@@ -35,5 +35,20 @@ export const renderDashboard = async (req, res) => {
         return dateB - dateA;
     });
 
-    res.render('pages/dashboard', { pageTitle, posts });
+    const compareDate = (post) => {
+        let currentDate = new Date();
+        let postDate = new Date(Date.parse(post.isoDate));
+        let minutes = (currentDate - postDate)/60e3;
+        let hours = minutes / 60;
+
+        if (hours < 1) {
+            return `${Math.round(minutes)} minutes ago`
+        } else if (hours > 24) {
+            return `More than 24 hours ago`
+        } else {
+            return `${Math.round(hours)} hours ago`
+        }
+    }
+
+    res.render('pages/dashboard', { pageTitle, posts, compareDate });
 }
