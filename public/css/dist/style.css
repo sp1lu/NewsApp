@@ -100,7 +100,7 @@ input {
   border-radius: 4px;
   padding: 6px;
   margin: 0 0 8px 0;
-  font-size: 1rem; }
+  font-size: .9rem; }
 
 .preferences-input {
   cursor: pointer;
@@ -111,6 +111,9 @@ input {
   margin: 0 0 16px 0;
   border: 1px solid #e5e5e5;
   border-radius: 4px; }
+
+label {
+  font-size: .75rem; }
 
 .checkbox {
   cursor: pointer;
@@ -123,15 +126,12 @@ input {
   border-radius: 4px; }
   .checkbox label {
     cursor: pointer;
-    font-size: 1rem;
+    font-size: .9rem;
     width: 100%;
-    padding: 8px 0 8px 8px; }
+    padding: 10px 0 10px 10px; }
   .checkbox input {
     cursor: pointer;
-    margin: 0 8px 0 0; }
-
-label {
-  font-size: .75rem; }
+    margin: 0 10px 0 0; }
 
 /*
 * Buttons
@@ -148,6 +148,29 @@ button {
   transition: .1s ease-in-out; }
   button:hover {
     background-color: #5c167f; }
+
+.btn {
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: 500; }
+
+.btn-sm {
+  font-size: .75rem; }
+
+.primary-btn {
+  color: #ffffff;
+  background-color: #9147ff;
+  border: 1px solid #9147ff; }
+  .primary-btn:hover {
+    background-color: #5c167f;
+    border: 1px solid #5c167f; }
+
+.secondary-btn {
+  color: #9147ff;
+  background-color: #ffffff;
+  border: 1px solid #9147ff; }
+  .secondary-btn:hover {
+    background-color: #efe4ff; }
 
 /*
 * Structure
@@ -179,8 +202,6 @@ header {
   header #logo-section {
     padding: 32px 0;
     border-bottom: 1px solid #e5e5e5; }
-    header #logo-section #logo {
-      width: 120px; }
   header #copyright-section {
     font-size: .75rem;
     color: #c8c8d0;
@@ -200,7 +221,9 @@ nav {
       text-decoration: none;
       display: block;
       padding: 8px;
-      border-radius: 4px; }
+      border-radius: 4px;
+      font-size: .9rem;
+      font-weight: 500; }
       nav ul li a:hover {
         background-color: #f9f9f9; }
       nav ul li a i {
@@ -218,6 +241,12 @@ footer {
   display: none; }
 
 /*
+* Logo
+*/
+#logo {
+  width: 120px; }
+
+/*
 * Title section
 */
 .title-section {
@@ -231,11 +260,55 @@ footer {
     font-size: .9rem; }
 
 /*
+* Homepage
+*/
+.homepage-body {
+  background-image: url("../../assets/Immagine.png");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat; }
+
+.homepage-container {
+  max-width: 1480px;
+  padding: 0 4%;
+  margin: auto;
+  height: 100vh; }
+
+.homepage-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  background-color: transparent; }
+
+.homepage-section {
+  text-align: center;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 0 100px 0; }
+  .homepage-section h1 {
+    font-size: 3rem;
+    line-height: 3.25rem;
+    margin: 0 0 24px 0; }
+  .homepage-section p {
+    font-size: 1.25rem; }
+
+/*
 * Dashboard
 */
 .post {
   padding: 40px 0;
   border-bottom: 1px solid #e5e5e5; }
+  .post .post-header {
+    display: flex;
+    align-items: center;
+    margin: 0 0 8px 0; }
+    .post .post-header img {
+      margin: 0 8px 0 0; }
   .post .post-data {
     font-size: .75rem;
     font-weight: 500;
@@ -272,38 +345,25 @@ footer {
   margin: 0 0 16px 0; }
 
 /*
-* Login
+* Login and signup
 */
 .login-section {
   max-width: 400px;
   margin: auto; }
-  .login-section label {
-    font-size: .75rem;
-    margin: 0 0 6px 0; }
-  .login-section input {
+  .login-section input,
+  .login-section button {
     width: 100%; }
+  .login-section button {
+    margin: 6px 0 0 0; }
 
 /*
 * Onboard
 */
-.onboard-form .preferences-input {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px; }
-  .onboard-form .preferences-input label {
-    cursor: pointer;
-    width: 100%;
-    padding: 8px 0 8px 8px; }
-  .onboard-form .preferences-input input {
-    cursor: pointer;
-    margin: 0 8px 0 0; }
-
 /*
 * Flash messages
 */
 .flash {
-  max-width: 1240px;
+  max-width: inherit;
   padding: 16px;
   margin: 0 auto 24px auto;
   border-radius: 4px;

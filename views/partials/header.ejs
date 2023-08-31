@@ -3,6 +3,14 @@
         <img src="/assets/newsly_logo.svg" alt="Newsly logo" id="logo">
     </div>
 
+    <div class="user-section">
+        <% if (!currentUser) { %>
+            <p>You're NOT logged in</p>
+        <% } else { %>
+            <p>You're logged in as <%= currentUser.username %>!</p>
+        <% } %>
+    </div>
+
     <nav>
         <ul>
             <li><a href="/dashboard" <% if (pageTitle == 'Dashboard') { %> class = "active" <% } %>><i class="bi bi-house"></i>Dashboard</a></li>
@@ -15,10 +23,4 @@
     <div id="copyright-section">
         <p>Newsly &copy; 2023. Tutti i diritti riservati.</p>
     </div>
-
-    <% if (!currentUser) { %>
-        <p>You're NOT logged in</p>
-    <% } else { %>
-        <p>You're logged in!</p>
-    <% } %>
 </header>

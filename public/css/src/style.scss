@@ -122,7 +122,7 @@ input {
     border-radius: 4px;
     padding: 6px;
     margin: 0 0 8px 0;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .preferences-input {
@@ -134,6 +134,10 @@ input {
     margin: 0 0 16px 0;
     border: 1px solid $grey;
     border-radius: 4px;
+}
+
+label {
+    font-size: .75rem;
 }
 
 .checkbox {
@@ -148,22 +152,17 @@ input {
 
     label {
         cursor: pointer;
-        font-size: 1rem;
+        font-size: .9rem;
         width: 100%;
-        padding: 8px 0 8px 8px;
+        padding: 10px 0 10px 10px;
     }
 
 
     input {
         cursor: pointer;
-        margin: 0 8px 0 0;
+        margin: 0 10px 0 0;
     }
 }
-
-label {
-    font-size: .75rem;
-}
-
 
 /*
 * Buttons
@@ -181,6 +180,37 @@ button {
 
     &:hover {
         background-color: $dark-purple;
+    }
+}
+
+.btn {
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-sm {
+    font-size: .75rem;
+}
+
+.primary-btn {
+    color: $white;
+    background-color: $purple;
+    border: 1px solid $purple;
+
+    &:hover {
+        background-color: $dark-purple;
+        border: 1px solid $dark-purple;
+    }
+}
+
+.secondary-btn {
+    color: $purple;
+    background-color: $white;
+    border: 1px solid $purple;
+
+    &:hover {
+        background-color: $light-purple;
     }
 }
 
@@ -218,10 +248,6 @@ header {
     #logo-section {
         padding: 32px 0;
         border-bottom: 1px solid $grey;
-
-        #logo {
-            width: 120px;
-        }
     }
 
     #copyright-section {
@@ -230,7 +256,6 @@ header {
         border-top: 1px solid $grey;
         padding: 32px 0;
     }
-
 }
 
 /*
@@ -250,6 +275,8 @@ nav {
                 display: block;
                 padding: 8px;
                 border-radius: 4px;
+                font-size: .9rem;
+                font-weight: 500;
 
                 &:hover {
                     background-color: $light-grey;
@@ -280,6 +307,13 @@ footer {
 }
 
 /*
+* Logo
+*/
+#logo {
+    width: 120px;
+}
+
+/*
 * Title section
 */
 .title-section {
@@ -298,11 +332,68 @@ footer {
 }
 
 /*
+* Homepage
+*/
+.homepage-body {
+    background-image: url("../../assets/Immagine.png");
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.homepage-container {
+    max-width: 1480px;
+    padding: 0 4%;
+    margin: auto;
+    height: 100vh;
+}
+
+.homepage-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    background-color: transparent;
+}
+
+.homepage-section {
+    text-align: center;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 0 100px 0;
+    
+    h1 {
+        font-size: 3rem;
+        line-height: 3.25rem;
+        margin: 0 0 24px 0;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+}
+
+/*
 * Dashboard
 */
 .post {
     padding: 40px 0;
     border-bottom: 1px solid $grey;
+
+    .post-header {
+        display: flex;
+        align-items: center;
+        margin: 0 0 8px 0;
+
+        img {
+            margin: 0 8px 0 0;
+        }
+    }
 
     .post-data {
         font-size: .75rem;
@@ -333,9 +424,7 @@ footer {
         width: 50%;
         float: left;
     }
-}
 
-.preferences-section {
     .preferences-controls {
         display: flex;
         width: 100%;
@@ -346,6 +435,7 @@ footer {
 * Add custom feed
 */
 .add-custom-section {
+
     label,
     input {
         display: block;
@@ -358,51 +448,31 @@ footer {
 }
 
 /*
-* Login
+* Login and signup
 */
 .login-section {
     max-width: 400px;
     margin: auto;
 
-    label {
-        font-size: .75rem;
-        margin: 0 0 6px 0;
+    input,
+    button {
+        width: 100%;
     }
 
-    input {
-        width: 100%;
+    button {
+        margin: 6px 0 0 0;
     }
 }
 
 /*
 * Onboard
 */
-.onboard-form {
-    .preferences-input {
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        padding: 0px;
-
-        label {
-            cursor: pointer;
-            width: 100%;
-            padding: 8px 0 8px 8px;
-        }
-
-        input {
-            cursor: pointer;
-            margin: 0 8px 0 0;
-        }
-
-    }
-}
 
 /*
 * Flash messages
 */
 .flash {
-    max-width: 1240px;
+    max-width: inherit;
     padding: 16px;
     margin: 0 auto 24px auto;
     border-radius: 4px;

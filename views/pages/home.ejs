@@ -1,4 +1,33 @@
-<% layout('layouts/empty') %>
-<div>
-    <h2><%= pageTitle %></h2>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsly</title>
+
+    <link rel="icon" href="/assets/favicon.ico">
+
+    <link rel="stylesheet" href="/css/dist/style.css">
+</head>
+
+<body class="homepage-body">
+    <div class="homepage-container">
+        <div class="homepage-nav">
+            <div class="homepage-logo">
+                <img src="/assets/newsly_logo.svg" alt="Newsly logo" id="logo">
+            </div>
+            <div class="homepage-btns">
+                <a href="/login" class="btn btn-sm secondary-btn">Login</a>
+                <a href="/register" class="btn btn-sm primary-btn">Signup</a>
+            </div>
+        </div>
+
+        <div class="homepage-section">
+            <h1>Track insights across the web without having to read everything</h1>
+            <p>You tell us what's important to you and we keep you informed.<br>Wherever you need, whenever you want.</p>
+        </div>
+    </div>
+</body>
+
+</html>
