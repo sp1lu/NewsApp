@@ -1,7 +1,4 @@
 // Import modules
-import ExpressError from "./ExpressError.js";
-import channel from "../models/channel.js";
-import user from "../models/user.js";
 
 // Check if a user is logged in or not
 export const isLoggedIn = (req, res, next) => {

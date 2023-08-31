@@ -9,6 +9,8 @@ import ExpressError from './utils/ExpressError.js';
 import mongoose from 'mongoose';
 import User from './models/user.js';
 
+import MongoStore from 'connect-mongo';
+
 import session from 'express-session';
 import flash from 'connect-flash';
 
@@ -50,9 +52,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session
+const secret = 'notagreatsecret';
+const store = MongoStore.create({ // Store session in database instead that in memory
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 3600, // Update user session only once in 24 hours if not necessary (in seconds not ms)
+    crypto: {
+        secret: secret,
+    }
+});
+
+store.on('error', function(e) {
+    console.log('SESSION STORE', e);
+});
+
 const sessionConfig = {
+    store: store,
     name: 'session',
-    secret: 'notagreatsecret',
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
