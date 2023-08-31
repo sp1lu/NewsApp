@@ -9,7 +9,6 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-    /* channels: [ String ] */
     channels: [
         {
             name: String,
