@@ -4,14 +4,16 @@
     <h1>On Board</h1>
     <p>Select at least one of the following source to start filling your custom feed</p>
 </div>
-<div class="onboard-form">
+<div class="checkbox-form">
     <form action="/onboard" method="POST" novalidate>
         <% for (const channel of channels) { %>
-            <div class="checkbox">
-                <label for="<%= channel.name %>"><%= channel.name %></label>
-                <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>">                
-            </div>
+            <label for="<%= channel.name %>">
+                <div class="checkbox">
+                    <p><%= channel.name %></p>
+                    <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>">                
+                </div>
+            </label>
         <% } %>
-        <button>Submit</button>
+        <button class="btn-primary">Submit</button>
     </form>
 </div>

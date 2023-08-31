@@ -90,15 +90,17 @@ $dark-grey: #c8c8d0;
 $light-grey: #f9f9f9;
 
 /*
-* Elements
+* Structure
 */
 body {
+    font-size: 1em;
     font-family: 'Inter', sans-serif;
-    font-size: .9em;
-    font-weight: 400;
     transition: .1s ease-in-out;
 }
 
+/*
+* Font
+*/
 h1 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -109,16 +111,75 @@ a {
     text-decoration: none;
 }
 
-button,
-.btn {
-    cursor: pointer;
+/*
+* Input
+*/
+input {
+    border: 1px solid $grey;
     border-radius: 4px;
-    font-weight: 500;
-    padding: 4px 16px;
-    transition: .1s ease-in-out;
+    padding: 6px;
+    margin: 0 0 8px 0;
+    font-size: .9rem;
 }
 
-.btn-primary {
+label {
+    font-size: .75rem;
+}
+
+.checkbox {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    margin: 0 0 16px 0;
+    border: 1px solid $grey;
+    border-radius: 4px;
+
+    label {
+        cursor: pointer;
+        font-size: .9rem;
+        width: 100%;
+        padding: 10px 0 10px 10px;
+    }
+
+
+    input {
+        cursor: pointer;
+        margin: 0 10px 0 0;
+    }
+}
+
+/*
+* Buttons
+*/
+button {
+    cursor: pointer;
+    color: $white;
+    background-color: $purple;
+    border: none;
+    border-radius: 4px;
+    font-size: .9rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    transition: .1s ease-in-out;
+
+    &:hover {
+        background-color: $dark-purple;
+    }
+}
+
+.btn {
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-sm {
+    font-size: .75rem;
+}
+
+.primary-btn {
     color: $white;
     background-color: $purple;
     border: 1px solid $purple;
@@ -129,7 +190,7 @@ button,
     }
 }
 
-.btn-secondary {
+.secondary-btn {
     color: $purple;
     background-color: $white;
     border: 1px solid $purple;
@@ -139,29 +200,10 @@ button,
     }
 }
 
-input {
-    border: 1px solid $grey;
-    border-radius: 4px;
-    padding: 4px 8px;
-}
-
-label {
-    font-size: .75rem;
-}
-
-#logo {
-    width: 120px;
-}
-
 /*
-* Templates
+* Structure
 */
-.container-canva {
-    max-width: 400px;
-    margin: 80px auto 0 auto;
-}
-
-.container-dashboard {
+.dashboard {
     max-width: 1240px;
     display: flex;
     margin: auto;
@@ -172,30 +214,34 @@ label {
         border-left: 1px solid $grey;
         min-height: 100vh;
     }
+}
 
-    header {
-        width: 20%;
-        padding: 0 32px 0 0;
-        height: fit-content;
-        position: sticky;
-        top: 0;
+.canva {
+    max-width: 600px;
+    margin: 80px auto;
+}
+
+/*
+* Sidebar
+*/
+header {
+    width: 20%;
+    padding: 0 32px 0 0;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+
+    #logo-section {
+        padding: 32px 0;
+        border-bottom: 1px solid $grey;
     }
-}
 
-#logo-section {
-    padding: 32px 0;
-    border-bottom: 1px solid $grey;
-}
-
-#copyright-section {
-    font-size: .75rem;
-    color: $dark-grey;
-    border-top: 1px solid $grey;
-    padding: 32px 0;
-}
-
-footer {
-    display: none;
+    #copyright-section {
+        font-size: .75rem;
+        color: $dark-grey;
+        border-top: 1px solid $grey;
+        padding: 32px 0;
+    }
 }
 
 /*
@@ -240,37 +286,39 @@ nav {
 }
 
 /*
-* Sections
+* Footer
+*/
+footer {
+    display: none;
+}
+
+/*
+* Logo
+*/
+#logo {
+    width: 120px;
+}
+
+/*
+* Title section
 */
 .title-section {
     text-align: center;
     margin: 0 0 32px 0;
-}
 
-.user-form {
-
-    input,
-    button {
-        width: 100%;
-        margin: 0 0 8px 0;
+    h1 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 8px 0;
     }
-}
 
-.checkbox-form {
-    label {
-        cursor: pointer;
+    p {
         font-size: .9rem;
     }
+}
 
-    .checkbox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
-        margin: 0 0 8px 0;
-        border: 1px solid $grey;
-        border-radius: 4px;
-    }
+.title-section-left {
+    text-align: left;
 }
 
 /*
@@ -307,7 +355,7 @@ nav {
     max-width: 800px;
     margin: auto;
     padding: 0 0 100px 0;
-
+    
     h1 {
         font-size: 3rem;
         line-height: 3.25rem;
@@ -317,6 +365,7 @@ nav {
     p {
         font-size: 1.25rem;
     }
+
 }
 
 /*
@@ -358,6 +407,51 @@ nav {
 }
 
 /*
+* Preferences
+*/
+.preferences-section {
+    .columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        .column {
+            width: 100%;
+        }
+    }
+
+    .preferences-controls {
+        display: flex;
+        width: 100%;
+    }
+}
+
+/*
+* Add custom feed
+*/
+.add-custom-section {
+    label,
+    input {
+        display: block;
+        width: 100%;
+    }
+}
+
+/*
+* Login and signup
+*/
+.login-section {
+    max-width: 400px;
+    margin: auto;
+
+    input,
+    button {
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+}
+
+/*
 * Flash messages
 */
 .flash {
@@ -374,6 +468,7 @@ nav {
     background-color: #c2edff;
     border: 1px solid #0073ff;
 }
+
 
 .error {
     color: #ff3e2c;
