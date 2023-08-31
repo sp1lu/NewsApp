@@ -11,14 +11,12 @@
     <link rel="stylesheet" href="/css/dist/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<body>
-    <div class="container">
-        <%- include('../partials/header') %>
-        <main class="main-dashboard">
-            <%- include('../partials/flash') %>
-            <%- body %>
-        </main>
-    </div>
+<body class="dashboard">
+    <%- include('../partials/header') %>
+    <main>
+        <%- include('../partials/flash') %>
+        <%- body %>
+    </main>
     <%- include('../partials/footer') %>
     
     <script src="/js/validateForms.js"></script>

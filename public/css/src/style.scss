@@ -90,9 +90,6 @@ $dark-grey: #c8c8d0;
 $light-grey: #f9f9f9;
 
 /*
-* General
-*/
-/*
 * Structure
 */
 body {
@@ -123,17 +120,6 @@ input {
     padding: 6px;
     margin: 0 0 8px 0;
     font-size: .9rem;
-}
-
-.preferences-input {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    margin: 0 0 16px 0;
-    border: 1px solid $grey;
-    border-radius: 4px;
 }
 
 label {
@@ -217,20 +203,20 @@ button {
 /*
 * Structure
 */
-.container {
-    display: flex;
+.dashboard {
     max-width: 1240px;
+    display: flex;
     margin: auto;
+
+    main {
+        width: 80%;
+        padding: 32px 0 0 120px;
+        border-left: 1px solid $grey;
+        min-height: 100vh;
+    }
 }
 
-.main-dashboard {
-    width: 80%;
-    padding: 32px 0 0 120px;
-    border-left: 1px solid $grey;
-    min-height: 100vh;
-}
-
-.main-empty {
+.canva {
     max-width: 600px;
     margin: 80px auto;
 }
@@ -331,6 +317,10 @@ footer {
     }
 }
 
+.title-section-left {
+    text-align: left;
+}
+
 /*
 * Homepage
 */
@@ -420,9 +410,14 @@ footer {
 * Preferences
 */
 .preferences-section {
-    .col {
-        width: 50%;
-        float: left;
+    .columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        .column {
+            width: 100%;
+        }
     }
 
     .preferences-controls {
@@ -435,15 +430,10 @@ footer {
 * Add custom feed
 */
 .add-custom-section {
-
     label,
     input {
         display: block;
         width: 100%;
-    }
-
-    .add-custom-input {
-        margin: 0 0 16px 0;
     }
 }
 
@@ -457,16 +447,9 @@ footer {
     input,
     button {
         width: 100%;
-    }
-
-    button {
-        margin: 6px 0 0 0;
+        margin: 0 0 16px 0;
     }
 }
-
-/*
-* Onboard
-*/
 
 /*
 * Flash messages
