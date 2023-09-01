@@ -327,11 +327,12 @@ nav {
 
 @media screen and (max-width: 768px) {
   .container-dashboard {
-    display: block; }
+    display: block;
+    padding: 0; }
     .container-dashboard main {
       width: 100%;
       border: none;
-      padding: 32px 0 0 0;
+      padding: 32px 4% 0 4%;
       min-height: 0; }
     .container-dashboard header {
       width: 100%;
@@ -342,17 +343,33 @@ nav {
       border-bottom: 1px solid #e5e5e5; }
       .container-dashboard header #logo-section {
         border: none;
-        padding: 16px 0; }
+        padding: 16px 0 16px 4%;
+        z-index: 2; }
       .container-dashboard header #logo {
         max-width: 88px; }
       .container-dashboard header .burger-icon {
-        display: block; }
+        display: block;
+        padding: 0 4% 0 0; }
         .container-dashboard header .burger-icon .bi {
-          cursor: pointer; }
+          cursor: pointer;
+          color: #0e0e10; }
+          .container-dashboard header .burger-icon .bi:hover {
+            color: #68686c; }
       .container-dashboard header #copyright-section {
         display: none; }
   nav {
-    display: none; }
+    position: absolute;
+    top: 0px;
+    padding: 4%;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    border-radius: 4px;
+    visibility: hidden;
+    width: 100%;
+    transition: .1s ease-in-out; }
+  .menu-show {
+    top: 56px;
+    visibility: visible; }
   .input-form button,
   .checkbox-form button {
     width: 100%; }
@@ -368,10 +385,3 @@ nav {
   footer {
     display: block;
     margin: 32px 0 0 0; } }
-
-.menu-show {
-  display: block;
-  width: 100%;
-  position: absolute;
-  top: 48px;
-  background-color: #ffffff; }
