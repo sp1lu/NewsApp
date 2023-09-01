@@ -1,26 +1,26 @@
 <% layout('layouts/empty') %>
 
-<div class="title-section">
+<div class="title-section text-center">
     <h1>Create an account</h1>
     <p>Already have an account? <a href="/login">Login</a></p>
 </div>
-<div class="user-form">
+<div class="input-form">
     <form action="/register" method="POST" novalidate>
         <div>
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" autofocus required>
+            <input class="w-100" type="text" id="username" name="username" autofocus required>
         </div>
 
          <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input class="w-100" type="email" id="email" name="email" required>
         </div>
 
         <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input class="w-100" type="password" id="password" name="password" required>
         </div>
 
-        <button class="btn-primary">Register</button>
+        <button class="btn-primary w-100">Register</button>
     </form>
 </div>

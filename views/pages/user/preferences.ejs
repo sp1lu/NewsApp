@@ -1,35 +1,37 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="title-section title-section-left">
+<div class="title-section">
     <h1>Preferences</h1>
 </div>
-<div class="preferences-section">
+<div class="checkbox-form">
     <form action="/preferences" method="POST" novalidate>
         <div class="columns">
             <div class="column">
-            <% for (const channel of channels) { %>
-                <div class="checkbox">
-                    <label for="<%= channel.name %>"><%= channel.name %></label>
-                    <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannelsUrl, channel.url) ? 'checked' : '' %>>
-                </div>
-            <% } %>
+                <% for (const channel of channels) { %>
+                    <label for="<%= channel.name %>">
+                        <div class="checkbox">
+                            <p><%= channel.name %></p>
+                            <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" <%= isContained(userChannelsUrl, channel.url) ? 'checked' : '' %>>
+                        </div>
+                    </label>                
+                <% } %>
             </div>
 
             <div class="column">
-            <% for (const channel of userCustomChannels) { %>
-                    <div class="checkbox">
-                        <label for="<%= channel.name %>"><%= channel.name %></label>
-                        <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" checked>
-                    </div>
-            <% } %>
+                <% for (const channel of userCustomChannels) { %>
+                    <label for="<%= channel.name %>">
+                        <div class="checkbox">
+                            <p><%= channel.name %></p>
+                            <input type="checkbox" id="<%= channel.name %>" name="channels[name]" value="<%= channel.url %>" checked>
+                        </div>
+                    </label>
+                <% } %>
             </div>
         </div>
-        <div class="preferences-controls">
-        <div id="custom-inputs"></div>
-        <!-- <a href="/preferences/add">Add custom feed</a> -->
+        <!-- <div id="custom-inputs"></div>
+        <a href="/preferences/add">Add custom feed</a> -->
         
-        <button type="submit">Submit</button>
-        </div>
+        <button type="submit" class="btn-primary">Submit</button>
     </form>
 </div>
 

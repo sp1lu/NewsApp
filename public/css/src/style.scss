@@ -154,6 +154,17 @@ label {
 }
 
 /*
+* General
+*/
+.text-center {
+    text-align: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/*
 * Templates
 */
 .container-canva {
@@ -243,15 +254,12 @@ nav {
 * Sections
 */
 .title-section {
-    text-align: center;
     margin: 0 0 32px 0;
 }
 
-.user-form {
-
+.input-form {
     input,
     button {
-        width: 100%;
         margin: 0 0 8px 0;
     }
 }
@@ -270,6 +278,16 @@ nav {
         margin: 0 0 8px 0;
         border: 1px solid $grey;
         border-radius: 4px;
+    }
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    .column {
+        width: 100%;
     }
 }
 

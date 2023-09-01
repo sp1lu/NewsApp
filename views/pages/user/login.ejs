@@ -1,21 +1,21 @@
 <% layout('layouts/empty') %>
 
-<div class="title-section">
+<div class="title-section text-center">
     <h1>Welcome back to Newsly</h1>
     <p>Don't have an account? <a href="/register">Signup</a></p>
 </div>
-<div class="user-form">
+<div class="input-form">
     <form action="/login" method="POST" novalidate>
         <div>
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" autofocus required>
+            <input class="w-100" type="text" id="username" name="username" autofocus required>
         </div>
 
         <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input class="w-100" type="password" id="password" name="password" required>
         </div>
 
-        <button class="btn-primary">Login</button>
+        <button class="btn-primary w-100">Login</button>
     </form>
 </div>
