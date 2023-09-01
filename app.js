@@ -32,7 +32,7 @@ import { routerOnBoard } from './routes/onboard.js';
 import { routerPreferences } from './routes/preferences.js';
 
 // Connect Mongoose to MongoDB and handle success or errors
-const dbUrl = 'mongodb://127.0.0.1:27017/newsapp';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/newsapp';
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
