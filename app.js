@@ -1,3 +1,9 @@
+import dotenv from 'dotenv';
+
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config();
+}
+
 // Import modules
 import express from 'express';
 import ejsMate from 'ejs-mate';
@@ -8,6 +14,8 @@ import ExpressError from './utils/ExpressError.js';
 
 import mongoose from 'mongoose';
 import User from './models/user.js';
+
+import helmet from 'helmet';
 
 import MongoStore from 'connect-mongo';
 
@@ -52,7 +60,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session
-const secret = 'notagreatsecret';
+const secret = process.env.SECRET || 'notagreatsecret';
 const store = MongoStore.create({ // Store session in database instead that in memory
     mongoUrl: dbUrl,
     touchAfter: 24 * 3600, // Update user session only once in 24 hours if not necessary (in seconds not ms)
