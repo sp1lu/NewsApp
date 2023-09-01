@@ -168,14 +168,16 @@ label {
 * Templates
 */
 .container-canva {
-    max-width: 400px;
+    max-width: 500px;
     margin: 80px auto 0 auto;
+    padding: 0 4%;
 }
 
 .container-dashboard {
     max-width: 1240px;
     display: flex;
     margin: auto;
+    padding: 0 4%;
 
     main {
         width: 80%;
@@ -190,12 +192,18 @@ label {
         height: fit-content;
         position: sticky;
         top: 0;
+        background-color: $white;
     }
 }
 
 #logo-section {
     padding: 32px 0;
     border-bottom: 1px solid $grey;
+}
+
+.burger-icon {
+    font-size: 24px;
+    display: none;
 }
 
 #copyright-section {
@@ -258,6 +266,7 @@ nav {
 }
 
 .input-form {
+
     input,
     button {
         margin: 0 0 8px 0;
@@ -344,6 +353,10 @@ nav {
     padding: 40px 0;
     border-bottom: 1px solid $grey;
 
+    &:last-child {
+        border: none;
+    }
+
     .post-header {
         display: flex;
         align-items: center;
@@ -397,4 +410,108 @@ nav {
     color: #ff3e2c;
     background-color: #fff1f0;
     border: 1px solid #ff3e2c;
+}
+
+/*
+* Media queries
+*/
+@media screen and (max-width: 1200px) {
+    .container-dashboard {
+        main {
+            width: 75%;
+            padding: 32px 0 0 40px;
+        }
+
+        header {
+            width: 25%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-dashboard {
+        display: block;
+
+        main {
+            width: 100%;
+            border: none;
+            padding: 32px 0 0 0;
+            min-height: 0;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            border-bottom: 1px solid $grey;
+
+            #logo-section {
+                border: none;
+                padding: 16px 0;
+            }
+
+            #logo {
+                max-width: 88px;
+            }
+
+            .burger-icon {
+                display: block;
+
+                .bi {
+                    cursor: pointer;
+                }
+            }
+
+            #copyright-section {
+                display: none;
+            }
+        }
+    }
+
+    nav {
+        display: none;
+    }
+
+    .input-form,
+    .checkbox-form {
+        button {
+            width: 100%;
+        }
+    }
+
+    .columns {
+        display: block;
+    }
+
+    .post {
+        &:last-child {
+            padding: 40px 0 0 0;
+        }
+    }
+
+    .homepage-body {
+        background-size: 200%;
+    }
+
+    .homepage-section {
+        h1 {
+            font-size: 2rem;
+            line-height: 2.25rem;
+        }
+    }
+
+    footer {
+        display: block;
+        margin: 32px 0 0 0;
+    }
+}
+
+.menu-show {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 48px;
+    background-color: $white;
 }
