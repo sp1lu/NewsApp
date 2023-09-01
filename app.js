@@ -15,8 +15,6 @@ import ExpressError from './utils/ExpressError.js';
 import mongoose from 'mongoose';
 import User from './models/user.js';
 
-import helmet from 'helmet';
-
 import MongoStore from 'connect-mongo';
 
 import session from 'express-session';
