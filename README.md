@@ -2,7 +2,7 @@
 ## Description
 Simple RSS reader webapp.
 
-Preview at: [newsly-u5hs.onrender.com](newsly-u5hs.onrender.com)
+Preview at: [newsly-u5hs.onrender.com](https://newsly-u5hs.onrender.com/)
 (First loading is slow 'cause of render.com free tier)
 
 ## Used technologies
